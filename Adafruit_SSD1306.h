@@ -26,14 +26,14 @@ All text above, and the splash screen must be included in any redistribution
   #define WIRE_WRITE Wire.send
 #endif
 
-#if defined(__SAM3X8E__)
+#if defined(__SAM3X8E__) 
  typedef volatile RwReg PortReg;
  typedef uint32_t PortMask;
  #define HAVE_PORTREG
 #elif defined(ARDUINO_ARCH_SAMD)
 // not supported
-#elif defined(ESP8266) || defined(ARDUINO_STM32_FEATHER)
-  typedef volatile uint32_t PortReg;
+#elif defined(ESP8266) || defined(ARDUINO_STM32_FEATHER) || defined(__PIC32__)
+  typedef volatile uint32_t PortReg; 
   typedef uint32_t PortMask;
 #else
   typedef volatile uint8_t PortReg;
